@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
@@ -49,7 +50,7 @@ public class GoodsServiceImpl implements GoodsService {
 		return result_cache;
 	}
 
-	@Transactional
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public void buyGoods(long userPhone, long goodsId, boolean useProcedure) {
 		// 用户校验

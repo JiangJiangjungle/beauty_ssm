@@ -17,10 +17,7 @@
     <!-- 启动对@AspectJ注解的支持 -->
     <aop:aspectj-autoproxy proxy-target-class="true" />
 
-    <!--简化配置:
-    	1、自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter
-    	2、提供一系列:数据绑定,数字和日期的format,@NumberFormat,@DataTimeFormat,xml,json默认读写支持
-    -->
+    <!--配置springMVC的注解模式，首先会注册RequestMappingHandlerMapping与RequestMappingHandlerAdapter-->
     <mvc:annotation-driven/>
 
     <!--静态资源默认servlet配置

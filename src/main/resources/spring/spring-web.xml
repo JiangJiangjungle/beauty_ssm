@@ -15,7 +15,7 @@
     <!-- 激活组件扫描功能,扫描aop的相关组件组件 -->
     <context:component-scan base-package="com.yingjun.ssm.aop"/>
     <!-- 启动对@AspectJ注解的支持 -->
-    <aop:aspectj-autoproxy proxy-target-class="true" />
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
 
     <!--配置springMVC的注解模式，首先会注册RequestMappingHandlerMapping与RequestMappingHandlerAdapter-->
     <mvc:annotation-driven/>
@@ -36,7 +36,19 @@
     <!--扫描web相关的controller-->
     <context:component-scan base-package="com.yingjun.ssm.web"/>
 
-	<!--全局异常捕捉 -->
-	<bean class="com.yingjun.ssm.exception.GlobalExceptionResolver" />
+    <!--全局异常捕捉 -->
+    <bean class="com.yingjun.ssm.exception.GlobalExceptionResolver"/>
+
+    <!--拦截器配置-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.yingjun.ssm.interceptor.MyHandlerInterceptor1"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.yingjun.ssm.interceptor.MyHandlerInterceptor2"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

@@ -86,6 +86,7 @@ public class GoodsServiceImpl implements GoodsService {
 			} else {
 				// 减库存
 				int updateCount = goodsDao.reduceNumber(goodsId);
+				updateCount = goodsDao.reduceNumber(goodsId);
 				if (updateCount <= 0) {
 					// 减库存失败
 					throw new BizException(ResultEnum.DB_UPDATE_RESULT_ERROR.getMsg());

@@ -38,37 +38,18 @@ public class TestBeanScopeController implements ApplicationContextAware, BeanFac
     }
 
     public void print() {
-        System.out.println("BeanFactory :" + beanFactory);
-        System.out.println("ApplicationContext :" + applicationContext);
 
-        System.out.println("first  time singleton is :" + getSingletonObj());
-        System.out.println("second time singleton is :" + getSingletonObj());
+        System.out.println("测试bean的生命周期，获取bean singleton :" + applicationContext.getBean(SingletonObj.class));
+        System.out.println("再次获取bean singleton :" + applicationContext.getBean(SingletonObj.class));
 
-        System.out.println("first  time prototype is :" + getPrototypeObj());
-        System.out.println("second time prototype is :" + getPrototypeObj());
+        System.out.println("测试bean的生命周期，获取bean prototype :" +applicationContext.getBean(PrototypeObj.class));
+        System.out.println("再次获取bean prototype :" + applicationContext.getBean(PrototypeObj.class));
 
-        System.out.println("first  time request is :" + getRequestObj());
-        System.out.println("second time request is :" + getRequestObj());
+        System.out.println("测试bean的生命周期，获取bean request :" + applicationContext.getBean(RequestObj.class));
+        System.out.println("再次获取bean request :" + applicationContext.getBean(RequestObj.class));
 
-        System.out.println("first  time session is :" + getSessionObj());
-        System.out.println("second time session is :" + getSessionObj());
-    }
-
-    public RequestObj getRequestObj() {
-        return applicationContext.getBean(RequestObj.class);
-    }
-
-    public SessionObj getSessionObj() {
-        return applicationContext.getBean(SessionObj.class);
-    }
-
-
-    public PrototypeObj getPrototypeObj() {
-        return applicationContext.getBean(PrototypeObj.class);
-    }
-
-    public SingletonObj getSingletonObj() {
-        return applicationContext.getBean(SingletonObj.class);
+        System.out.println("测试bean的生命周期，获取bean session :" + applicationContext.getBean(SessionObj.class));
+        System.out.println("再次获取bean session :" + applicationContext.getBean(SessionObj.class));
     }
 
 }

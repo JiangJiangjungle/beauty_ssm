@@ -30,12 +30,10 @@ public class GoodsDaoTest {
     }
 
     @Test
-    @Transactional(propagation = Propagation.REQUIRED)
     public void testReduceNumber() throws Exception{
         int result = goodsDao.reduceNumber(1);
         System.out.println("testReduceNumber result:" + result);
         System.out.println("--------------------------");
-        throw new Exception("test");
     }
 
     @Test

@@ -2,7 +2,12 @@ package com.yingjun.ssm.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.aop.framework.AopContext;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Propagation;
@@ -10,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring/*.xml")
-public class GoodsServiceTest {
+public class GoodsServiceTest{
     @Autowired
     private GoodsService goodsService;
 
